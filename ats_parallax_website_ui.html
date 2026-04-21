@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATS Pools | Dubai Premium Pool Builders</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #061627;
+      --bg2: #0b2742;
+      --card: rgba(255,255,255,0.08);
+      --card-border: rgba(255,255,255,0.16);
+      --cyan: #61dafb;
+      --cyan2: #1eb6ff;
+      --gold: #d6b36a;
+      --soft: rgba(255,255,255,0.74);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(30,182,255,0.18), transparent 24%),
+        radial-gradient(circle at 80% 0%, rgba(214,179,106,0.14), transparent 18%),
+        linear-gradient(180deg, #04111d 0%, #0a2238 35%, #071726 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      height: 220vh;
+      position: relative;
+    }
+
+    .hero-inner {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+    }
+
+    .layer {
+      position: absolute;
+      inset: -6%;
+      will-change: transform, opacity;
+    }
+
+    .bg {
+      z-index: 1;
+      background:
+        radial-gradient(circle at 50% 18%, rgba(255,255,255,0.09), transparent 16%),
+        radial-gradient(circle at 20% 12%, rgba(30,182,255,0.20), transparent 25%),
+        radial-gradient(circle at 80% 10%, rgba(214,179,106,0.10), transparent 18%),
+        linear-gradient(180deg, #061627 0%, #0b2742 58%, #0c3553 100%);
+    }
+
+    .stars {
+      z-index: 2;
+      opacity: 0.7;
+      background-image:
+        radial-gradient(circle at 12% 20%, rgba(255,255,255,0.95) 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 12%, rgba(255,255,255,0.8) 0 1.4px, transparent 2.4px),
+        radial-gradient(circle at 40% 28%, rgba(255,255,255,0.7) 0 1px, transparent 2px),
+        radial-gradient(circle at 61% 16%, rgba(255,255,255,0.85) 0 1.2px, transparent 2.2px),
+        radial-gradient(circle at 74% 8%, rgba(255,255,255,0.9) 0 1.1px, transparent 2px),
+        radial-gradient(circle at 86% 24%, rgba(255,255,255,0.65) 0 1.3px, transparent 2.3px),
+        radial-gradient(circle at 92% 15%, rgba(255,255,255,0.9) 0 1px, transparent 2px);
+    }
+
+    .glow {
+      z-index: 3;
+      background:
+        radial-gradient(circle at 50% 74%, rgba(97,218,251,0.40), transparent 22%),
+        radial-gradient(circle at 50% 86%, rgba(97,218,251,0.24), transparent 34%);
+      filter: blur(12px);
+    }
+
+    .skyline {
+      z-index: 4;
+      opacity: 0.55;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 110% auto;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 700'><defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'><stop offset='0%' stop-color='%23dceeff' stop-opacity='0.95'/><stop offset='100%' stop-color='%23b9dfff' stop-opacity='0.68'/></linearGradient></defs><g fill='url(%23g)'><rect x='40' y='410' width='70' height='230'/><rect x='125' y='355' width='52' height='285'/><rect x='195' y='388' width='88' height='252'/><rect x='304' y='318' width='46' height='322'/><polygon points='327,190 344,318 310,318'/><rect x='382' y='430' width='96' height='210'/><rect x='502' y='352' width='62' height='288'/><rect x='584' y='398' width='74' height='242'/><rect x='680' y='298' width='72' height='342'/><polygon points='716,105 734,298 698,298'/><rect x='776' y='430' width='84' height='210'/><rect x='880' y='238' width='64' height='402'/><polygon points='912,18 930,238 894,238'/><rect x='970' y='388' width='94' height='252'/><rect x='1087' y='332' width='60' height='308'/><rect x='1168' y='414' width='90' height='226'/><rect x='1284' y='292' width='62' height='348'/><polygon points='1315,112 1332,292 1298,292'/><rect x='1370' y='382' width='84' height='258'/><rect x='1476' y='434' width='58' height='206'/></g></svg>");
+      filter: drop-shadow(0 0 14px rgba(97,218,251,0.16));
+      bottom: -5%;
+    }
+
+    .water {
+      z-index: 5;
+      inset: auto -10% -4% -10%;
+      height: 44%;
+      background:
+        linear-gradient(180deg, rgba(97,218,251,0.08), rgba(10,70,110,0.62)),
+        radial-gradient(circle at 20% 22%, rgba(255,255,255,0.12), transparent 16%),
+        radial-gradient(circle at 72% 30%, rgba(255,255,255,0.12), transparent 18%),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 30%, rgba(255,255,255,0.04) 60%, transparent 100%);
+      clip-path: polygon(0 24%, 10% 18%, 22% 24%, 34% 14%, 47% 22%, 60% 12%, 75% 20%, 88% 11%, 100% 17%, 100% 100%, 0 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 -12px 40px rgba(97,218,251,0.12);
+    }
+
+    .hero-shine {
+      position: absolute;
+      left: 50%;
+      bottom: 16%;
+      width: 740px;
+      height: 280px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(255,255,255,0.17), transparent 62%);
+      z-index: 6;
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 10;
+      width: min(1100px, calc(100% - 40px));
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: end;
+      margin-top: 80px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: #d7f3ff;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(97,218,251,0.8);
+    }
+
+    .headline {
+      font-size: clamp(42px, 7vw, 88px);
+      line-height: 0.95;
+      margin: 0 0 18px;
+      letter-spacing: -0.05em;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .headline .accent {
+      background: linear-gradient(90deg, #ffffff 0%, #caf3ff 34%, #8ce8ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .sub {
+      color: var(--soft);
+      font-size: clamp(16px, 1.6vw, 21px);
+      line-height: 1.65;
+      max-width: 720px;
+      margin: 0 0 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #78e7ff, #23c6ff);
+      color: #042138;
+      box-shadow: 0 14px 30px rgba(35,198,255,0.24);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.16);
+      color: white;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .stat {
+      padding: 18px 18px 16px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(24px, 2.4vw, 34px);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      display: block;
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .feature-panel {
+      padding: 22px;
+      align-self: center;
+      max-width: 360px;
+      justify-self: end;
+    }
+
+    .feature-panel h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .feature-panel p {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.86);
+      font-size: 14px;
+    }
+
+    .section {
+      position: relative;
+      padding: 110px 20px;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      color: #8de9ff;
+      letter-spacing: 0.2em;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .section-text {
+      color: rgba(255,255,255,0.72);
+      font-size: 17px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .pool-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      min-height: 210px;
+      padding: 24px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.28);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.32);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(97,218,251,0.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(214,179,106,0.12), transparent 24%);
+      pointer-events: none;
+    }
+
+    .card.large { grid-column: span 6; }
+    .card.medium { grid-column: span 4; }
+    .card.small { grid-column: span 3; }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      font-size: 26px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      font-size: 15px;
+      max-width: 92%;
+    }
+
+    .process-grid, .service-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .process-step, .service-card {
+      grid-column: span 4;
+      padding: 24px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-number {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      font-weight: 800;
+      font-size: 18px;
+      color: #062138;
+      background: linear-gradient(135deg, #c5f6ff, #3bcfff);
+    }
+
+    .process-step h3, .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .process-step p, .service-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .cta {
+      padding: 120px 20px 140px;
+    }
+
+    .cta-panel {
+      position: relative;
+      padding: 42px;
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(97,218,251,0.18), transparent 22%),
+        radial-gradient(circle at 80% 10%, rgba(214,179,106,0.12), transparent 18%),
+        linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .cta-panel h2 {
+      margin: 0 0 16px;
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .cta-panel p {
+      max-width: 700px;
+      margin: 0 auto 26px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.75;
+      font-size: 17px;
+    }
+
+    .reveal, .card, .process-step, .service-card, .feature-panel, .stat {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-copy {
+        grid-template-columns: 1fr;
+        align-items: center;
+        text-align: center;
+        margin-top: 40px;
+      }
+      .feature-panel { justify-self: center; max-width: 640px; }
+      .stats { max-width: 760px; margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+    }
+
+    @media (max-width: 900px) {
+      .card.large, .card.medium, .card.small,
+      .process-step, .service-card {
+        grid-column: span 12;
+      }
+      .stats { grid-template-columns: 1fr; }
+      .skyline { background-size: 160% auto; opacity: 0.45; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { height: 180vh; }
+      .hero-copy { width: min(100%, calc(100% - 24px)); }
+      .btn { width: 100%; }
+      .hero-actions { flex-direction: column; }
+      .cta-panel { padding: 30px 20px; }
+      .headline { font-size: 42px; }
+      .skyline { background-size: 220% auto; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="layer bg"></div>
+      <div class="layer stars"></div>
+      <div class="layer glow"></div>
+      <div class="layer skyline"></div>
+      <div class="layer water"></div>
+      <div class="hero-shine"></div>
+
+      <div class="hero-copy">
+        <div class="hero-main">
+          <div class="eyebrow hero-animate">Dubai Based Swimming Pool Builders</div>
+          <h1 class="headline hero-animate">Engineering <span class="accent">Luxury Pools</span><br/>for Dubai Living</h1>
+          <p class="sub hero-animate">Concrete pools, infinity edges, rooftop concepts, jacuzzis, water features, commercial pools, and wellness spaces — designed with precision and built to impress.</p>
+
+          <div class="hero-actions hero-animate">
+            <a href="#pools" class="btn btn-primary">Explore Services</a>
+            <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+          </div>
+
+          <div class="stats">
+            <div class="glass stat">
+              <strong>10+</strong>
+              <span>Years Experience</span>
+            </div>
+            <div class="glass stat">
+              <strong>Custom</strong>
+              <span>Residential & Commercial</span>
+            </div>
+            <div class="glass stat">
+              <strong>Dubai</strong>
+              <span>Design to Delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="glass feature-panel reveal">
+          <h3>Signature Water Environments</h3>
+          <p>From rooftop pools to spa-grade wellness zones, ATS creates high-end water experiences that feel architectural, premium, and unforgettable.</p>
+          <div class="mini-list">
+            <div class="mini-item"><span>Infinity Pool</span><span>Luxury Edge</span></div>
+            <div class="mini-item"><span>Jacuzzi</span><span>Hydro Comfort</span></div>
+            <div class="mini-item"><span>Sauna / Steam</span><span>Wellness Zone</span></div>
+            <div class="mini-item"><span>Water Features</span><span>Ambient Design</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pools">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Pool Portfolio</div>
+        <h2 class="section-title">Designed for Every Space, Lifestyle, and Vision</h2>
+        <p class="section-text">Whether it is a private villa, rooftop leisure deck, commercial property, or a compact luxury retreat, ATS builds swimming pool systems tailored for aesthetics, durability, and performance.</p>
+      </div>
+
+      <div class="pool-grid">
+        <article class="card large">
+          <div class="card-icon">🏊</div>
+          <h3>Concrete Swimming Pool</h3>
+          <p>Fully customizable structural pools engineered for long-term durability, premium tiling, and luxury architectural finishes.</p>
+        </article>
+        <article class="card medium">
+          <div class="card-icon">🌊</div>
+          <h3>Overflow Pool</h3>
+          <p>Seamless edge detailing and elegant water levelling for a high-end resort-style look.</p>
+        </article>
+        <article class="card medium">
+          <div class="card-icon">✨</div>
+          <h3>Infinity Pool</h3>
+          <p>Clean visual edges and panoramic luxury appeal for villas, rooftops, and statement properties.</p>
+        </article>
+        <article class="card small">
+          <div class="card-icon">📏</div>
+          <h3>Lap Pool</h3>
+          <p>Minimal, linear, and built for exercise-focused use.</p>
+        </article>
+        <article class="card small">
+          <div class="card-icon">🛁</div>
+          <h3>Plunge Pool</h3>
+          <p>Compact premium cooling zones for smaller spaces.</p>
+        </article>
+        <article class="card small">
+          <div class="card-icon">🏙️</div>
+          <h3>Rooftop Pool</h3>
+          <p>Specialized water systems built for elevated urban environments.</p>
+        </article>
+        <article class="card small">
+          <div class="card-icon">🧩</div>
+          <h3>Skimmer Pool</h3>
+          <p>Practical and elegant residential pool systems with clean detailing.</p>
+        </article>
+        <article class="card small">
+          <div class="card-icon">🧱</div>
+          <h3>Fibreglass Pool</h3>
+          <p>Fast-install solutions with quality surface finish and efficiency.</p>
+        </article>
+        <article class="card small">
+          <div class="card-icon">⬆️</div>
+          <h3>Above Ground Pool</h3>
+          <p>Flexible pool options for select spaces and project conditions.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px;">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Process</div>
+        <h2 class="section-title">From Concept to Crystal-Clear Delivery</h2>
+        <p class="section-text">Every ATS project is handled in a clear workflow — from design and technical planning to finishing, testing, and final handover.</p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-step">
+          <div class="process-number">01</div>
+          <h3>Consultation & Design</h3>
+          <p>We study your space, intent, layout, and design language to propose the right pool concept and system.</p>
+        </article>
+        <article class="process-step">
+          <div class="process-number">02</div>
+          <h3>Technical Planning</h3>
+          <p>Structural details, circulation, filtration, waterproofing, and service requirements are mapped before execution begins.</p>
+        </article>
+        <article class="process-step">
+          <div class="process-number">03</div>
+          <h3>Construction & Finishing</h3>
+          <p>We execute civil works, pool shell, piping, equipment installation, finishes, and visual detailing with precision.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">Extended Services</div>
+        <h2 class="section-title">Wellness, Commercial, and Feature Water Solutions</h2>
+        <p class="section-text">ATS goes beyond pools with spa-style experiences, decorative water elements, and commercial-scale water engineering.</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <h3>Commercial Pools</h3>
+          <p>Built for hotels, buildings, clubs, institutions, and hospitality spaces with performance-led system planning.</p>
+        </article>
+        <article class="service-card">
+          <h3>Jacuzzi</h3>
+          <p>Integrated hydrotherapy zones designed for luxury relaxation, heat comfort, and visual elegance.</p>
+        </article>
+        <article class="service-card">
+          <h3>Sauna & Steam Room</h3>
+          <p>Complete wellness environments for homes, resorts, and spa-inspired premium projects.</p>
+        </article>
+        <article class="service-card">
+          <h3>Water Features</h3>
+          <p>Decorative cascades, wall features, and ambient water installations that elevate architectural character.</p>
+        </article>
+        <article class="service-card">
+          <h3>Fish Ponds</h3>
+          <p>Designed ornamental pond systems with attention to circulation, clarity, and tranquil visual appeal.</p>
+        </article>
+        <article class="service-card">
+          <h3>Custom Solutions</h3>
+          <p>Unique project requirements, bespoke concepts, and hybrid water environments tailored to the property.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-panel reveal">
+        <div class="section-kicker">Start Your Project</div>
+        <h2>Ready to Build a Landmark Water Experience?</h2>
+        <p>Let ATS transform your villa, rooftop, commercial site, or wellness concept into a premium destination with elegant design and expert construction.</p>
+        <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+          <a href="#" class="btn btn-primary">Call ATS</a>
+          <a href="#" class="btn btn-secondary">WhatsApp Inquiry</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function runTests() {
+      console.assert(document.querySelectorAll('.layer').length >= 5, 'Expected at least 5 hero layers');
+      console.assert(document.querySelectorAll('.card').length >= 9, 'Expected at least 9 pool cards');
+      console.assert(document.querySelectorAll('.process-step').length >= 3, 'Expected at least 3 process steps');
+      console.assert(document.querySelectorAll('.service-card').length >= 6, 'Expected at least 6 service cards');
+      console.assert(document.querySelector('.headline'), 'Expected hero headline');
+      console.assert(document.querySelector('.feature-panel'), 'Expected feature panel');
+    }
+
+    function initGSAP() {
+      if (!window.gsap) {
+        console.warn('GSAP not loaded');
+        document.querySelectorAll('.reveal, .card, .process-step, .service-card, .feature-panel, .stat').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+        return;
+      }
+
+      try {
+        const gsapRef = window.gsap;
+        const hasST = !!window.ScrollTrigger;
+        if (hasST) gsapRef.registerPlugin(window.ScrollTrigger);
+
+        gsapRef.set(['.reveal', '.card', '.process-step', '.service-card', '.feature-panel', '.stat'], {
+          opacity: 0,
+          y: 40
+        });
+
+        gsapRef.set('.hero-animate', { opacity: 0, y: 30 });
+        gsapRef.set('.feature-panel', { opacity: 0, x: 40, y: 0 });
+        gsapRef.set('.stat', { opacity: 0, y: 26 });
+
+        const heroTl = gsapRef.timeline({ delay: 0.2 });
+        heroTl
+          .fromTo('.bg', { scale: 1.12 }, { scale: 1, duration: 1.8, ease: 'power3.out' }, 0)
+          .fromTo('.stars', { opacity: 0 }, { opacity: 0.7, duration: 1.6, ease: 'power2.out' }, 0.1)
+          .fromTo('.skyline', { y: 120, opacity: 0 }, { y: 0, opacity: 0.55, duration: 1.8, ease: 'power3.out' }, 0.15)
+          .fromTo('.water', { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 1.6, ease: 'power3.out' }, 0.25)
+          .to('.hero-animate', { opacity: 1, y: 0, duration: 1, stagger: 0.12, ease: 'power3.out' }, 0.35)
+          .to('.feature-panel', { opacity: 1, x: 0, duration: 1, ease: 'power3.out' }, 0.55)
+          .to('.stat', { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, 0.75);
+
+        if (hasST) {
+          const heroScroll = gsapRef.timeline({
+            scrollTrigger: {
+              trigger: '.hero',
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: 1.2
+            }
+          });
+
+          heroScroll
+            .to('.bg', { y: 140, scale: 1.08, ease: 'none' }, 0)
+            .to('.stars', { y: 80, opacity: 0.35, ease: 'none' }, 0)
+            .to('.glow', { y: 220, scale: 1.1, ease: 'none' }, 0)
+            .to('.skyline', { y: 260, scale: 1.03, ease: 'none' }, 0)
+            .to('.water', { y: 360, ease: 'none' }, 0)
+            .to('.hero-copy', { y: -130, opacity: 0.16, ease: 'none' }, 0);
+
+          gsapRef.utils.toArray('.reveal').forEach((el) => {
+            gsapRef.to(el, {
+              opacity: 1,
+              y: 0,
+              duration: 0.9,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 84%'
+              }
+            });
+          });
+
+          gsapRef.utils.toArray('.card').forEach((el, i) => {
+            gsapRef.to(el, {
+              opacity: 1,
+              y: 0,
+              duration: 0.85,
+              ease: 'power3.out',
+              delay: i * 0.04,
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 88%'
+              }
+            });
+          });
+
+          gsapRef.utils.toArray('.process-step').forEach((el, i) => {
+            gsapRef.fromTo(el,
+              { opacity: 0, y: 50, scale: 0.96 },
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.9,
+                ease: 'power3.out',
+                delay: i * 0.08,
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 86%'
+                }
+              }
+            );
+          });
+
+          gsapRef.utils.toArray('.service-card').forEach((el, i) => {
+            gsapRef.fromTo(el,
+              { opacity: 0, y: 60 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.85,
+                ease: 'power3.out',
+                delay: i * 0.05,
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 88%'
+                }
+              }
+            );
+          });
+        } else {
+          gsapRef.to('.reveal, .card, .process-step, .service-card', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.05
+          });
+        }
+      } catch (e) {
+        console.error('GSAP error:', e);
+        document.querySelectorAll('.reveal, .card, .process-step, .service-card, .feature-panel, .stat, .hero-animate').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+      }
+    }
+
+    window.addEventListener('load', () => {
+      runTests();
+      initGSAP();
+    });
+  </script>
+</body>
+</html>
