@@ -50,9 +50,9 @@ const organization = {
     addressCountry: "AE",
   },
   sameAs: [
-    "https://www.facebook.com/",
-    "https://www.instagram.com/",
-    "https://www.linkedin.com/",
+    "https://www.facebook.com/alwahaapools",
+    "https://www.instagram.com/alwahaa_pools/",
+    "https://www.linkedin.com/in/alwahaa-technical-services-llc-7183b080/",
   ],
 };
 

@@ -12,9 +12,21 @@ const NAV_LINKS = [
 ];
 
 const SOCIALS = [
-  { Icon: Facebook, href: "#", label: "Facebook" },
-  { Icon: Instagram, href: "#", label: "Instagram" },
-  { Icon: Linkedin, href: "#", label: "LinkedIn" },
+  {
+    Icon: Facebook,
+    href: "https://www.facebook.com/alwahaapools",
+    label: "Facebook",
+  },
+  {
+    Icon: Instagram,
+    href: "https://www.instagram.com/alwahaa_pools/",
+    label: "Instagram",
+  },
+  {
+    Icon: Linkedin,
+    href: "https://www.linkedin.com/in/alwahaa-technical-services-llc-7183b080/",
+    label: "LinkedIn",
+  },
   { Icon: Youtube, href: "#", label: "YouTube" },
 ];
 
@@ -74,6 +86,8 @@ export default function Footer() {
                   <a
                     href={href}
                     aria-label={label}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                     className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-ink-soft transition hover:border-brand-blue hover:text-brand-blue"
                   >
                     <Icon className="h-4 w-4" />
