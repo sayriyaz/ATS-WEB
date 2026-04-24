@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from "lucide-react";
 
@@ -9,7 +10,7 @@ const MOBILE = "+971525652771";
 const EMAIL_INFO = "info@alwahaatechnical.com";
 const EMAIL_GMAIL = "alwahaatechnical@gmail.com";
 
-const CONTACTS = [
+const CONTACTS: { Icon: React.ElementType; title: string; value: string; href: string; target?: string }[] = [
   {
     Icon: Phone,
     title: "Office",
