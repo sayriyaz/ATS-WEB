@@ -97,6 +97,14 @@ export default function Footer() {
             </ul>
             <p className="mt-6 text-sm text-ink-soft">
               <a
+                href="mailto:info@alwahaatechnical.com"
+                className="hover:text-brand-blue"
+              >
+                info@alwahaatechnical.com
+              </a>
+            </p>
+            <p className="mt-1 text-sm text-ink-soft">
+              <a
                 href="mailto:alwahaatechnical@gmail.com"
                 className="hover:text-brand-blue"
               >

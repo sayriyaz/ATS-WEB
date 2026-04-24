@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#commercial", label: "Pools" },
@@ -47,7 +46,7 @@ export default function Navbar() {
           />
         </a>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-7 md:flex lg:gap-9">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
@@ -60,16 +59,9 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#cta"
-          className="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition hover:bg-brand-blue lg:inline-block"
-        >
-          Get a Quote
-        </a>
-
         <button
           aria-label="Toggle menu"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink md:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -83,9 +75,9 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden border-t border-black/5 bg-white/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-t border-black/5 bg-white/95 backdrop-blur-xl md:hidden"
           >
-            <ul className="flex flex-col gap-1 px-6 py-4">
+            <ul className="flex max-h-[calc(100dvh-5rem)] flex-col gap-1 overflow-y-auto px-6 py-4">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
                   <a
@@ -97,15 +89,6 @@ export default function Navbar() {
                   </a>
                 </li>
               ))}
-              <li className="pt-2">
-                <a
-                  href="#cta"
-                  onClick={() => setOpen(false)}
-                  className="block rounded-full bg-ink px-5 py-3 text-center text-sm font-medium text-white"
-                >
-                  Get a Quote
-                </a>
-              </li>
             </ul>
           </motion.div>
         )}

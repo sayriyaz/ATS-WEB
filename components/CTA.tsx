@@ -5,34 +5,34 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight } from "lucide-react";
 
 const WHATSAPP = "971525652771";
 const PHONE = "+97142552895";
-const EMAIL = "alwahaatechnical@gmail.com";
+const MOBILE = "+971525652771";
+const EMAIL_INFO = "info@alwahaatechnical.com";
+const EMAIL_GMAIL = "alwahaatechnical@gmail.com";
 
 const CONTACTS = [
   {
     Icon: Phone,
-    title: "Call",
+    title: "Office",
     value: "+971 4 255 2895",
     href: `tel:${PHONE}`,
   },
   {
-    Icon: MessageCircle,
-    title: "WhatsApp",
+    Icon: Phone,
+    title: "Mobile",
     value: "+971 52 565 2771",
-    href: `https://wa.me/${WHATSAPP}`,
-    target: "_blank",
+    href: `tel:${MOBILE}`,
   },
   {
     Icon: Mail,
     title: "Email",
-    value: EMAIL,
-    href: `mailto:${EMAIL}`,
+    value: EMAIL_INFO,
+    href: `mailto:${EMAIL_INFO}`,
   },
   {
-    Icon: MapPin,
-    title: "Location",
-    value: "Dubai, UAE",
-    href: "https://maps.app.goo.gl/V3Ekqs9VeJK3ENjz7",
-    target: "_blank",
+    Icon: Mail,
+    title: "Also Reach Us",
+    value: EMAIL_GMAIL,
+    href: `mailto:${EMAIL_GMAIL}`,
   },
 ];
 
@@ -176,10 +176,10 @@ export default function CTA() {
               <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </div>
-          <div className="relative aspect-[16/9] w-full bg-surface-2">
+          <div className="relative aspect-[16/10] w-full bg-surface-2 md:aspect-[21/9]">
             <iframe
-              title="Alwahaa Technical Services — Dubai location"
-              src="https://www.google.com/maps?q=Dubai,+UAE&output=embed"
+              title="Alwahaa Technical Services LLC — Dubai location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.6122658847057!2d55.326535275220245!3d25.260708629125656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5cdb0fab28ed%3A0xc8bb3524001dee73!2sAL%20WAHAA%20TECHNICAL%20SERVICES%20L.L.C!5e1!3m2!1sen!2sae!4v1776860126628!5m2!1sen!2sae"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0 h-full w-full border-0"

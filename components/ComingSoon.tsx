@@ -14,7 +14,8 @@ import {
 
 const WHATSAPP = "971525652771";
 const PHONE = "+97142552895";
-const EMAIL = "alwahaatechnical@gmail.com";
+const EMAIL_INFO = "info@alwahaatechnical.com";
+const EMAIL_GMAIL = "alwahaatechnical@gmail.com";
 const MAPS = "https://maps.app.goo.gl/V3Ekqs9VeJK3ENjz7";
 
 const CONTACTS = [
@@ -36,16 +37,15 @@ const CONTACTS = [
   {
     Icon: Mail,
     label: "Email",
-    value: EMAIL,
-    href: `mailto:${EMAIL}`,
+    value: EMAIL_INFO,
+    href: `mailto:${EMAIL_INFO}`,
     accent: "text-brand-blue",
   },
   {
-    Icon: MapPin,
-    label: "Dubai, UAE",
-    value: "P.O. Box 91270",
-    href: MAPS,
-    target: "_blank",
+    Icon: Mail,
+    label: "Also Email",
+    value: EMAIL_GMAIL,
+    href: `mailto:${EMAIL_GMAIL}`,
     accent: "text-brand-blue",
   },
 ];

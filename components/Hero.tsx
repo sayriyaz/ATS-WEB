@@ -5,12 +5,14 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { HERO_SLIDES } from "@/lib/images";
+import QuoteModal from "./QuoteModal";
 
 const AUTO_ADVANCE_MS = 6000;
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [quoteOpen, setQuoteOpen] = useState(false);
 
   useEffect(() => {
     if (paused) return;
@@ -75,13 +77,14 @@ export default function Hero() {
               {slide.subtitle}
             </p>
             <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row">
-              <a
-                href="#cta"
+              <button
+                type="button"
+                onClick={() => setQuoteOpen(true)}
                 className="group inline-flex items-center gap-2 rounded-full bg-brand-blue px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0090e0]"
               >
                 Get a Free Quote
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </button>
               <a
                 href="#gallery"
                 className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
@@ -122,6 +125,8 @@ export default function Hero() {
           />
         ))}
       </div>
+
+      <QuoteModal open={quoteOpen} onClose={() => setQuoteOpen(false)} />
     </section>
   );
 }

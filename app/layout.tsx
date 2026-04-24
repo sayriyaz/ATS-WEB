@@ -108,8 +108,8 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "AE-DU",
     "geo.placename": "Dubai",
-    "geo.position": "25.2048;55.2708",
-    ICBM: "25.2048, 55.2708",
+    "geo.position": "25.260709;55.326535",
+    ICBM: "25.260709, 55.326535",
     "DC.title": "Alwahaa Technical Services LLC",
     rating: "General",
     distribution: "Global",

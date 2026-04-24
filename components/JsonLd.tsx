@@ -3,7 +3,7 @@ const siteUrl =
 
 const PHONE = "+97142552895";
 const WHATSAPP = "+971525652771";
-const EMAIL = "alwahaatechnical@gmail.com";
+const EMAIL = "info@alwahaatechnical.com";
 const MAPS = "https://maps.app.goo.gl/V3Ekqs9VeJK3ENjz7";
 
 const organization = {
@@ -77,8 +77,8 @@ const localBusiness = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 25.2048,
-    longitude: 55.2708,
+    latitude: 25.260709,
+    longitude: 55.326535,
   },
   hasMap: MAPS,
   openingHoursSpecification: [

@@ -3,7 +3,16 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { GALLERY_IMAGES } from "@/lib/images";
+const GALLERY_IMAGES = [
+  { src: "/images/gallery/1.png", fit: "cover" },
+  { src: "/images/gallery/2.png", fit: "cover" },
+  { src: "/images/gallery/3.png", fit: "cover" },
+  { src: "/images/gallery/4.png", fit: "contain" },
+  { src: "/images/gallery/5.png", fit: "cover" },
+  { src: "/images/gallery/6.png", fit: "cover" },
+  { src: "/images/gallery/7.png", fit: "cover" },
+  { src: "/images/gallery/8.png", fit: "cover" },
+];
 
 export default function Gallery() {
   return (
@@ -41,7 +50,7 @@ export default function Gallery() {
           }}
           className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4"
         >
-          {GALLERY_IMAGES.map((src, i) => (
+          {GALLERY_IMAGES.map(({ src, fit }, i) => (
             <motion.figure
               key={src}
               variants={{
@@ -59,7 +68,7 @@ export default function Gallery() {
                   alt={`Pool project ${i + 1}`}
                   fill
                   sizes="(min-width: 768px) 25vw, 50vw"
-                  className="object-cover transition duration-700 group-hover:scale-110"
+                  className={`transition duration-700 group-hover:scale-110 ${fit === "contain" ? "object-contain p-2" : "object-cover"}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
                 <div className="absolute bottom-3 left-3 translate-y-2 text-xs font-semibold uppercase tracking-[0.2em] text-white opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">
@@ -78,7 +87,7 @@ export default function Gallery() {
           className="mt-12 flex justify-center"
         >
           <a
-            href="#cta"
+            href="/gallery"
             className="group inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3.5 text-sm font-semibold text-ink transition hover:border-brand-blue hover:text-brand-blue"
           >
             View Full Gallery
