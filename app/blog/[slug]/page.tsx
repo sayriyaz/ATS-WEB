@@ -54,18 +54,18 @@ const mdxComponents = {
     <li className="leading-relaxed" {...props} />
   ),
   table: (props: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="mt-6 overflow-x-auto rounded-2xl border border-black/5">
-      <table className="w-full text-sm" {...props} />
+    <div className="mt-8 overflow-x-auto rounded-2xl border border-black/8 shadow-sm">
+      <table className="w-full text-sm border-collapse" {...props} />
     </div>
   ),
   thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <thead className="bg-surface-2 text-xs uppercase tracking-widest text-mute" {...props} />
+    <thead className="bg-brand-blue text-white" {...props} />
   ),
   th: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <th className="px-4 py-3 text-left font-semibold" {...props} />
+    <th className="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wider whitespace-nowrap" {...props} />
   ),
   td: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className="border-t border-black/5 px-4 py-3 text-ink-soft" {...props} />
+    <td className="px-5 py-3.5 text-ink-soft border-t border-black/5 [tr:nth-child(even)_&]:bg-surface-2" {...props} />
   ),
   strong: (props: React.HTMLAttributes<HTMLElement>) => (
     <strong className="font-semibold text-ink" {...props} />
