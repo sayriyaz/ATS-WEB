@@ -11,7 +11,7 @@ export interface PostMeta {
   date: string;
   category: string;
   readTime: string;
-  coverImage?: string;
+  coverImage: string;
 }
 
 export interface Post extends PostMeta {

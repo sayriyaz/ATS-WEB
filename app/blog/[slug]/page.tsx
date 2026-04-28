@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import { getAllPosts, getPost } from "@/lib/blog";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 import { ArrowLeft, Phone, MessageCircle } from "lucide-react";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alwahaatechnical.com";
@@ -139,7 +140,18 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             By <span className="font-semibold text-ink">Alwahaa Technical Services LLC</span> · Dubai, UAE
           </div>
 
-          <hr className="mt-10 border-black/5" />
+          {post.coverImage && (
+            <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-3xl">
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
 
           <article className="mt-10">
             <MDXRemote
