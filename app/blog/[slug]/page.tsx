@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getAllPosts, getPost } from "@/lib/blog";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -54,7 +55,7 @@ const mdxComponents = {
     <li className="leading-relaxed" {...props} />
   ),
   table: (props: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="mt-8 overflow-x-auto rounded-2xl border border-black/8 shadow-sm">
+    <div className="mt-8 overflow-x-auto rounded-2xl border border-black/5 shadow-sm">
       <table className="w-full text-sm border-collapse" {...props} />
     </div>
   ),
@@ -62,10 +63,13 @@ const mdxComponents = {
     <thead className="bg-brand-blue text-white" {...props} />
   ),
   th: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <th className="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wider whitespace-nowrap" {...props} />
+    <th className="px-5 py-4 text-left text-xs font-semibold uppercase tracking-wider whitespace-nowrap first:rounded-tl-2xl last:rounded-tr-2xl" {...props} />
+  ),
+  tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody className="[&>tr:nth-child(even)]:bg-slate-50 [&>tr]:border-t [&>tr]:border-black/5 [&>tr:hover]:bg-brand-blue/5" {...props} />
   ),
   td: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className="px-5 py-3.5 text-ink-soft border-t border-black/5 [tr:nth-child(even)_&]:bg-surface-2" {...props} />
+    <td className="px-5 py-3.5 text-ink-soft" {...props} />
   ),
   strong: (props: React.HTMLAttributes<HTMLElement>) => (
     <strong className="font-semibold text-ink" {...props} />
@@ -138,7 +142,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <hr className="mt-10 border-black/5" />
 
           <article className="mt-10">
-            <MDXRemote source={post.content} components={mdxComponents} />
+            <MDXRemote
+              source={post.content}
+              components={mdxComponents}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
           </article>
 
           {/* CTA */}
