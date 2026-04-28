@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#commercial", label: "Pools" },
@@ -16,6 +18,13 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  function resolveHref(href: string) {
+    if (href.startsWith("#")) return isHome ? href : `/${href}`;
+    return href;
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -36,7 +45,7 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-10">
-        <a href="#" aria-label="Alwahaa Technical Services — Home">
+        <a href="/" aria-label="Alwahaa Technical Services — Home">
           <Image
             src="/images/logo.png"
             alt="Alwahaa Technical Services"
@@ -51,7 +60,7 @@ export default function Navbar() {
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
-                href={l.href}
+                href={resolveHref(l.href)}
                 className="text-[0.85rem] font-medium text-ink-soft transition hover:text-brand-blue"
               >
                 {l.label}
@@ -82,7 +91,7 @@ export default function Navbar() {
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
                   <a
-                    href={l.href}
+                    href={resolveHref(l.href)}
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-3 text-base font-medium text-ink-soft transition hover:bg-black/[0.04] hover:text-brand-blue"
                   >
