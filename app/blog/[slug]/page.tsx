@@ -141,13 +141,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
 
           {post.coverImage && (
-            <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-3xl">
+            <div className="mt-10 overflow-hidden rounded-3xl bg-surface-2">
               <Image
                 src={post.coverImage}
                 alt={post.title}
-                fill
+                width={1600}
+                height={1200}
                 sizes="(max-width: 768px) 100vw, 768px"
-                className="object-cover"
+                className="h-auto w-full"
                 priority
               />
             </div>
