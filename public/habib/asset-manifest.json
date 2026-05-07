@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/habib/static/css/main.4c46163a.css",
+    "main.js": "/habib/static/js/main.32de6506.js",
+    "static/js/488.c356928e.chunk.js": "/habib/static/js/488.c356928e.chunk.js",
+    "index.html": "/habib/index.html",
+    "main.4c46163a.css.map": "/habib/static/css/main.4c46163a.css.map",
+    "main.32de6506.js.map": "/habib/static/js/main.32de6506.js.map",
+    "488.c356928e.chunk.js.map": "/habib/static/js/488.c356928e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c46163a.css",
+    "static/js/main.32de6506.js"
+  ]
+}

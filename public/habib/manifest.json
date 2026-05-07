@@ -1,0 +1,15 @@
+{
+  "short_name": "ATS",
+  "name": "Alwahaa Technical Services",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#00aaff",
+  "background_color": "#ffffff"
+}
