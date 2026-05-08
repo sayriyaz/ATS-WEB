@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   keywords: [
     "swimming pool Dubai",
     "pool construction Dubai",
+    "swimming pool contractor dubai",
+    "swimming pool construction dubai",
     "pool contractor UAE",
     "infinity pool Dubai",
     "rooftop pool UAE",
