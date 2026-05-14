@@ -153,7 +153,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <div className="mt-10 overflow-hidden rounded-3xl bg-surface-2">
               <Image
                 src={post.coverImage}
-                alt={post.title}
+                alt={`${post.title} | Alwahaa Technical Services Dubai`}
                 width={1600}
                 height={1200}
                 sizes="(max-width: 768px) 100vw, 768px"
