@@ -7,29 +7,29 @@ import { X, ChevronLeft, ChevronRight, ArrowLeft, Play } from "lucide-react";
 import Link from "next/link";
 
 type MediaItem =
-  | { type: "image"; src: string; fit: "cover" | "contain"; span?: 1 | 2 }
+  | { type: "image"; src: string; alt: string; fit: "cover" | "contain"; span?: 1 | 2 }
   | { type: "video"; src: string; poster?: string; span?: 1 | 2 };
 
 const MEDIA: MediaItem[] = [
-  { type: "image", src: "/images/gallery/1.png", fit: "cover", span: 2 },
-  { type: "image", src: "/images/gallery/2.png", fit: "cover" },
-  { type: "image", src: "/images/gallery/3.png", fit: "cover" },
+  { type: "image", src: "/images/gallery/1.png", alt: "Luxury villa swimming pool with Burj Khalifa view and water feature wall, Dubai — Alwahaa Technical Services", fit: "cover", span: 2 },
+  { type: "image", src: "/images/gallery/2.png", alt: "Custom residential swimming pool with mosaic tiles and tropical landscaping, Dubai villa — Alwahaa Technical Services", fit: "cover" },
+  { type: "image", src: "/images/gallery/3.png", alt: "Infinity overflow pool at Palm Jumeirah with Dubai Marina skyline — luxury pool construction UAE by Alwahaa Technical Services", fit: "cover" },
   { type: "video", src: "/images/gallery/1.mp4", span: 2 },
-  { type: "image", src: "/images/gallery/4.png", fit: "contain" },
-  { type: "image", src: "/images/gallery/5.png", fit: "cover" },
-  { type: "image", src: "/images/gallery/11.png", fit: "cover", span: 2 },
-  { type: "image", src: "/images/gallery/6.png", fit: "cover" },
-  { type: "image", src: "/images/gallery/7.png", fit: "cover" },
+  { type: "image", src: "/images/gallery/4.png", alt: "Swimming pool technical construction plan and engineering drawings — Alwahaa Technical Services Dubai", fit: "contain" },
+  { type: "image", src: "/images/gallery/5.png", alt: "Luxury swimming pool design with shallow ledge, water feature wall and overflow edge — Alwahaa Technical Services Dubai", fit: "cover" },
+  { type: "image", src: "/images/gallery/11.png", alt: "Alwahaa Technical Services premium pool construction and finishing — circular rooftop pool tiling in progress, Dubai UAE", fit: "cover", span: 2 },
+  { type: "image", src: "/images/gallery/6.png", alt: "Custom pool, jacuzzi and kids pool combo with LED underwater lighting at night — Alwahaa Technical Services Dubai", fit: "cover" },
+  { type: "image", src: "/images/gallery/7.png", alt: "Alwahaa Technical Services workers installing blue glass mosaic tiles during swimming pool construction in Dubai", fit: "cover" },
   { type: "video", src: "/images/gallery/2.mp4" },
-  { type: "image", src: "/images/gallery/12.png", fit: "cover" },
-  { type: "image", src: "/images/gallery/13.png", fit: "cover", span: 2 },
-  { type: "image", src: "/images/gallery/8.png", fit: "cover" },
-  { type: "image", src: "/images/gallery/14.png", fit: "cover" },
-  { type: "image", src: "/images/gallery/9.png", fit: "cover" },
+  { type: "image", src: "/images/gallery/12.png", alt: "Expert pool construction and finishing by Alwahaa Technical Services — decorative tiled residential pool, Dubai UAE", fit: "cover" },
+  { type: "image", src: "/images/gallery/13.png", alt: "Alwahaa Technical Services crane hire and heavy equipment transport for construction projects, Dubai UAE", fit: "cover", span: 2 },
+  { type: "image", src: "/images/gallery/8.png", alt: "Infinity pool cross-section showing underground filtration pump room — pool engineering and construction Dubai UAE", fit: "cover" },
+  { type: "image", src: "/images/gallery/14.png", alt: "Alwahaa Technical Services site survey and foundation work — precision pool construction planning, Dubai UAE", fit: "cover" },
+  { type: "image", src: "/images/gallery/9.png", alt: "Modern villa swimming pool at dusk with LED landscape lighting and palm trees — Alwahaa Technical Services Dubai", fit: "cover" },
   { type: "video", src: "/images/gallery/3.mp4", span: 2 },
-  { type: "image", src: "/images/gallery/15.png", fit: "cover" },
-  { type: "image", src: "/images/gallery/16.png", fit: "cover" },
-  { type: "image", src: "/images/gallery/10.jpg", fit: "cover" },
+  { type: "image", src: "/images/gallery/15.png", alt: "Custom swimming pool with dark mosaic finish and lush tropical landscaping — built for beauty, Alwahaa Technical Services Dubai", fit: "cover" },
+  { type: "image", src: "/images/gallery/16.png", alt: "Alwahaa Technical Services pool structure components delivery — engineered for strength and durability, Dubai UAE", fit: "cover" },
+  { type: "image", src: "/images/gallery/10.jpg", alt: "Rooftop infinity pool with panoramic city skyline view — commercial rooftop pool construction Dubai by Alwahaa Technical Services", fit: "cover" },
 ];
 
 export default function GalleryPageClient() {
@@ -118,7 +118,7 @@ export default function GalleryPageClient() {
             {item.type === "image" ? (
               <Image
                 src={item.src}
-                alt={`Alwahaa project ${i + 1}`}
+                alt={item.type === "image" ? item.alt : `Alwahaa pool project ${i + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 25vw"
                 className={`transition duration-700 group-hover:scale-105 ${
@@ -179,7 +179,7 @@ export default function GalleryPageClient() {
               {activeItem.type === "image" ? (
                 <Image
                   src={activeItem.src}
-                  alt={`Project ${lightbox + 1}`}
+                  alt={activeItem.type === "image" ? activeItem.alt : `Alwahaa pool project ${lightbox + 1}`}
                   width={1600}
                   height={1000}
                   className="max-h-[85vh] w-full rounded-2xl object-contain"
