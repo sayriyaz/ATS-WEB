@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Explicitly allow AI search bots
+# Explicitly allow AI search and crawl bots
 User-agent: GPTBot
 Allow: /
 
@@ -23,4 +23,23 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
 Sitemap: https://alwahaatechnical.com/sitemap.xml
+Sitemap: https://alwahaatechnical.com/image-sitemap.xml

@@ -310,7 +310,96 @@ const webpage = {
   },
 };
 
-const ALL_SCHEMAS = [organization, localBusiness, website, webpage, faq, breadcrumb];
+const serviceList = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Swimming Pool Services Dubai — Alwahaa Technical Services",
+  description: "Complete list of swimming pool construction, maintenance, and outdoor living services offered by Alwahaa Technical Services LLC in Dubai and the UAE.",
+  url: siteUrl,
+  numberOfItems: 6,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Service",
+        "@id": `${siteUrl}#service-construction`,
+        name: "Swimming Pool Construction Dubai",
+        description: "Custom concrete, infinity, overflow, skimmer, rooftop, lap, plunge and fibreglass pool construction for residential and commercial projects across Dubai and UAE. Price range AED 50,000 – AED 2,000,000.",
+        provider: { "@id": `${siteUrl}#organization` },
+        areaServed: { "@type": "Country", name: "United Arab Emirates" },
+        url: siteUrl,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "Service",
+        "@id": `${siteUrl}#service-maintenance`,
+        name: "Swimming Pool Maintenance Dubai",
+        description: "Weekly and bi-weekly pool servicing, water chemistry balancing, filter and pump maintenance, algae treatment and annual deep clean across Dubai and UAE.",
+        provider: { "@id": `${siteUrl}#organization` },
+        areaServed: { "@type": "Country", name: "United Arab Emirates" },
+        url: siteUrl,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "Service",
+        "@id": `${siteUrl}#service-jacuzzi`,
+        name: "Jacuzzi and Spa Installation Dubai",
+        description: "Custom-built in-ground jacuzzis integrated with swimming pools, freestanding spa installations, and hydrotherapy jet systems for villas and commercial properties.",
+        provider: { "@id": `${siteUrl}#organization` },
+        areaServed: { "@type": "Country", name: "United Arab Emirates" },
+        url: siteUrl,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "Service",
+        "@id": `${siteUrl}#service-waterfeatures`,
+        name: "Water Features and Fountains Dubai",
+        description: "Waterfall walls, blade waterfalls, scupper spillways, decorative fountains, and LED water feature lighting for residential and commercial spaces.",
+        provider: { "@id": `${siteUrl}#organization` },
+        areaServed: { "@type": "Country", name: "United Arab Emirates" },
+        url: siteUrl,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 5,
+      item: {
+        "@type": "Service",
+        "@id": `${siteUrl}#service-landscaping`,
+        name: "Landscaping and Hardscaping Dubai",
+        description: "Garden design, natural stone paving, timber decking, pergolas, gazebos, artificial turf, irrigation and outdoor lighting for Dubai and UAE properties.",
+        provider: { "@id": `${siteUrl}#organization` },
+        areaServed: { "@type": "Country", name: "United Arab Emirates" },
+        url: siteUrl,
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 6,
+      item: {
+        "@type": "Service",
+        "@id": `${siteUrl}#service-renovation`,
+        name: "Pool Renovation and Repair Dubai",
+        description: "Full pool renovation, mosaic tile replacement, plaster resurfacing, waterproofing renewal, leak detection, equipment upgrades and pool conversion across Dubai and UAE.",
+        provider: { "@id": `${siteUrl}#organization` },
+        areaServed: { "@type": "Country", name: "United Arab Emirates" },
+        url: siteUrl,
+      },
+    },
+  ],
+};
+
+const ALL_SCHEMAS = [organization, localBusiness, website, webpage, faq, breadcrumb, serviceList];
 
 export default function JsonLd() {
   return (

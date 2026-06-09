@@ -4,15 +4,23 @@ import GalleryPageClient from "@/components/GalleryPageClient";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alwahaatechnical.com";
 
 export const metadata: Metadata = {
-  title: "Gallery | Alwahaa Technical Services LLC",
+  title: "Pool Construction Gallery | Alwahaa Technical Services LLC",
   description:
-    "Browse our portfolio of luxury swimming pools, water features, and landscaping projects built across Dubai and the UAE.",
+    "Browse 500+ completed luxury swimming pool projects — infinity pools, rooftop pools, jacuzzis, water features and landscaping across Dubai and UAE by Alwahaa Technical Services.",
+  alternates: { canonical: `${siteUrl}/gallery` },
   openGraph: {
     title: "Pool Construction Gallery | Alwahaa Technical Services Dubai",
     description:
       "See 500+ completed pool projects — luxury villas, infinity pools, rooftop pools, jacuzzis and water features across Dubai and UAE.",
     url: `${siteUrl}/gallery`,
+    type: "website",
     images: [{ url: `${siteUrl}/images/gallery/1.png`, width: 1600, height: 900 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pool Construction Gallery | Alwahaa Technical Services Dubai",
+    description: "500+ luxury pool projects across Dubai and UAE.",
+    images: [`${siteUrl}/images/gallery/1.png`],
   },
 };
 
