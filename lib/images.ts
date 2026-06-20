@@ -5,9 +5,9 @@ export const HERO_SLIDES = [
   {
     src: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80",
     eyebrow: "Welcome to Alwahaa Technical Services",
-    title: "Crafting Signature Pools Across Dubai",
+    title: "Dubai's Leading Swimming Pool Contractors",
     subtitle:
-      "Leading swimming pool contractors — we create, design and construct.",
+      "Commercial and residential pool construction across the UAE — concrete, infinity, rooftop, and more.",
   },
   {
     src: "https://safwaa.com/wp-content/uploads/2026/03/ما-الذي-لا-تراه-في-تصميم-المسابح-الفاخرة.jpg",

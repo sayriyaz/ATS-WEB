@@ -99,6 +99,12 @@ const BLOG_IMAGES = [
     title: "Alwahaa Technical Services — Proud of UAE Luxury Outdoor Lifestyle",
     caption: "Alwahaa Technical Services celebrates UAE's luxury pool and outdoor lifestyle culture",
   },
+  {
+    url: `${siteUrl}/blog/commercial-pool-contractors-dubai`,
+    src: "/images/blog/pool-cost.png",
+    title: "Alwahaa Technical Services — Commercial Swimming Pool Contractors Dubai",
+    caption: "Commercial pool construction for hotels, resorts and compounds in Dubai by Alwahaa Technical Services",
+  },
 ];
 
 export async function GET() {
