@@ -101,7 +101,7 @@ const BLOG_IMAGES = [
   },
   {
     url: `${siteUrl}/blog/commercial-pool-contractors-dubai`,
-    src: "/images/blog/pool-cost.png",
+    src: "/images/blog/commercial_pool.png",
     title: "Alwahaa Technical Services — Commercial Swimming Pool Contractors Dubai",
     caption: "Commercial pool construction for hotels, resorts and compounds in Dubai by Alwahaa Technical Services",
   },
