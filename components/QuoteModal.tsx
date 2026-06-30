@@ -4,8 +4,6 @@ import { useEffect, useState, FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
-// Web3Forms access key — set NEXT_PUBLIC_WEB3FORMS_KEY in .env.local / Vercel
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
 type Props = {
   open: boolean;
@@ -59,43 +57,23 @@ export default function QuoteModal({ open, onClose }: Props) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!ACCESS_KEY) {
-      setStatus("error");
-      setErrorMsg(
-        "Form not configured. Please set NEXT_PUBLIC_WEB3FORMS_KEY."
-      );
-      return;
-    }
-
     setStatus("sending");
     setErrorMsg("");
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/quote", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: `New Quote Request from ${form.name}`,
-          from_name: "Alwahaa Website — Quote Form",
-          name: form.name,
-          phone: form.phone,
-          email: form.email,
-          location: form.location,
-          message: form.message,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
       const data = await res.json();
       if (data.success) {
         setStatus("success");
       } else {
         setStatus("error");
-        setErrorMsg(data.message || "Something went wrong. Please try again.");
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
       setErrorMsg("Network error. Please check your connection and retry.");
     }
@@ -248,7 +226,7 @@ export default function QuoteModal({ open, onClose }: Props) {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-2.5 text-sm font-medium text-white transition hover:bg-brand-blue disabled:cursor-not-allowed disabled:opacity-70"
+                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-blue px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#0090e0] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {status === "sending" ? (
                     <>

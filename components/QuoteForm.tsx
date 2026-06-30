@@ -4,8 +4,6 @@ import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
-
 type Status = "idle" | "sending" | "success" | "error";
 
 export default function QuoteForm() {
@@ -27,37 +25,20 @@ export default function QuoteForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!ACCESS_KEY) {
-      setStatus("error");
-      setErrorMsg("Form not configured. Please contact us via WhatsApp.");
-      return;
-    }
     setStatus("sending");
     setErrorMsg("");
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch("/api/quote", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: `New Quote Request from ${form.name}`,
-          from_name: "Alwahaa Website — /quote Page",
-          name: form.name,
-          phone: form.phone,
-          email: form.email,
-          location: form.location,
-          message: form.message,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
       const data = await res.json();
       if (data.success) setStatus("success");
       else {
         setStatus("error");
-        setErrorMsg(data.message || "Something went wrong. Please try again.");
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
       }
     } catch {
       setStatus("error");
@@ -166,7 +147,7 @@ export default function QuoteForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0090e0] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === "sending" ? (
           <>
