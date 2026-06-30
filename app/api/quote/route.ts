@@ -50,7 +50,7 @@ function notificationHtml(name: string, phone: string, email: string, location: 
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td style="padding-right:8px;">
-                <a href="${WHATSAPP}?text=Hi%20${encodeURIComponent(name)}%2C%20I%20saw%20your%20quote%20request%20on%20our%20website.%20How%20can%20I%20help%3F" style="display:block;background:#25D366;color:#ffffff;text-align:center;padding:14px 20px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;">
+                <a href="https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=Hi%20${encodeURIComponent(name)}%2C%20I%20saw%20your%20quote%20request%20on%20our%20website.%20How%20can%20I%20help%3F" style="display:block;background:#25D366;color:#ffffff;text-align:center;padding:14px 20px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;">
                   💬 Reply on WhatsApp
                 </a>
               </td>
