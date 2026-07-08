@@ -34,27 +34,26 @@ export default function Hero() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 1.06 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ opacity: { duration: 1.1 }, scale: { duration: 6.5 } }}
-          className="absolute inset-0"
+      {HERO_SLIDES.map((s, i) => (
+        <div
+          key={s.src}
+          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+          style={{ opacity: i === index ? 1 : 0 }}
+          aria-hidden={i !== index}
         >
           <Image
-            src={slide.src}
-            alt={slide.title}
+            src={s.src}
+            alt={s.title}
             fill
-            priority={index === 0}
+            priority={i === 0}
+            loading="eager"
             sizes="100vw"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/30 to-black/70" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent" />
-        </motion.div>
-      </AnimatePresence>
+        </div>
+      ))}
 
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-6 pt-24 lg:px-10">
         <AnimatePresence mode="wait">
