@@ -3,35 +3,35 @@
 
 export const HERO_SLIDES = [
   {
-    src: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1920&q=80",
+    src: "/images/hero/hero-1.jpg",
     eyebrow: "Welcome to Alwahaa Technical Services",
     title: "Dubai's Leading Swimming Pool Contractors",
     subtitle:
       "Commercial and residential pool construction across the UAE — concrete, infinity, rooftop, and more.",
   },
   {
-    src: "https://safwaa.com/wp-content/uploads/2026/03/ما-الذي-لا-تراه-في-تصميم-المسابح-الفاخرة.jpg",
+    src: "/images/hero/hero-2.jpg",
     eyebrow: "Quality Services",
     title: "Built to Your Taste. Delivered With Passion.",
     subtitle:
       "Understanding your vision, executed to the highest standards in the UAE.",
   },
   {
-    src: "https://www.poolmagazine.com/wp-content/uploads/2026/03/dalpino7-1024x576.jpg",
+    src: "/images/hero/hero-3.jpg",
     eyebrow: "Commercial & Residential",
     title: "Pools for Every Project.",
     subtitle:
       "A reputation earned across Dubai — hotels, towers, villas, and private homes.",
   },
   {
-    src: "https://buildeey.com/uploads/gallery/al-wahaa-pools-llc%2F3.jpg",
+    src: "/images/hero/hero-4.jpg",
     eyebrow: "Water Features & Wellness",
     title: "Beyond the Pool.",
     subtitle:
       "Jacuzzis, fountains, saunas, landscaping, and custom water features.",
   },
   {
-    src: "https://buildeey.com/uploads/gallery/al-wahaa-pools-llc%2F2.jpg",
+    src: "/images/hero/hero-5.jpg",
     eyebrow: "Your Vision. Our Craft.",
     title: "You Desire. We Fulfill.",
     subtitle:
@@ -39,11 +39,9 @@ export const HERO_SLIDES = [
   },
 ];
 
-export const COMMERCIAL_IMG =
-  "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=80";
+export const COMMERCIAL_IMG = "/images/hero/commercial.jpg";
 
-export const RESIDENTIAL_IMG =
-  "https://www.missionpools.com/wp-content/themes/mission-pools/assets/images/product-hub-banner.webp";
+export const RESIDENTIAL_IMG = "/images/hero/residential.jpg";
 
 export const GALLERY_IMAGES = [
   "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=80",
