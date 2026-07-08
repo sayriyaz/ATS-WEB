@@ -8,20 +8,24 @@ import { HERO_SLIDES } from "@/lib/images";
 import QuoteModal from "./QuoteModal";
 
 const AUTO_ADVANCE_MS = 6000;
+// Hold the first slide longer so the initial headline stays the LCP element
+// (each slide swap paints a new H1, which re-triggers LCP measurement).
+const FIRST_SLIDE_MS = 12000;
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [quoteOpen, setQuoteOpen] = useState(false);
+  const [firstCycle, setFirstCycle] = useState(true);
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(
-      () => setIndex((i) => (i + 1) % HERO_SLIDES.length),
-      AUTO_ADVANCE_MS
-    );
-    return () => clearInterval(t);
-  }, [paused]);
+    const t = setTimeout(() => {
+      setFirstCycle(false);
+      setIndex((i) => (i + 1) % HERO_SLIDES.length);
+    }, firstCycle ? FIRST_SLIDE_MS : AUTO_ADVANCE_MS);
+    return () => clearTimeout(t);
+  }, [paused, index, firstCycle]);
 
   const go = (dir: 1 | -1) =>
     setIndex((i) => (i + dir + HERO_SLIDES.length) % HERO_SLIDES.length);
