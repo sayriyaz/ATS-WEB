@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import JsonLd from "@/components/JsonLd";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Commercial from "@/components/Commercial";
@@ -13,6 +14,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-white">
+      <JsonLd includeRatings />
       <Navbar />
       <Hero />
       <About />

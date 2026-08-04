@@ -83,7 +83,8 @@ const organization = {
 
 const localBusiness = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService", "HomeAndConstructionBusiness"],
+  "@type": "HomeAndConstructionBusiness",
+  additionalType: "https://schema.org/ProfessionalService",
   "@id": `${siteUrl}#localbusiness`,
   name: "Alwahaa Technical Services LLC",
   alternateName: ["Alwahaa Pools", "Al Wahaa Pools", "ATS Pools"],
@@ -399,12 +400,22 @@ const serviceList = {
   ],
 };
 
-const ALL_SCHEMAS = [organization, localBusiness, website, webpage, faq, breadcrumb, serviceList];
+// Sitewide: entity/identity schema, no ratings — safe on every page.
+const SITEWIDE_SCHEMAS = [organization, website, webpage, faq, breadcrumb, serviceList];
 
-export default function JsonLd() {
+// Homepage only: localBusiness carries aggregateRating. Google's Review
+// Snippets feature expects rating markup only on the page that represents
+// the rated entity — shipping it sitewide (e.g. on /blog) previously
+// triggered a "Review has multiple aggregate ratings" GSC error.
+const HOMEPAGE_SCHEMAS = [localBusiness];
+
+export default function JsonLd({ includeRatings = false }: { includeRatings?: boolean }) {
+  const schemas = includeRatings
+    ? [...SITEWIDE_SCHEMAS, ...HOMEPAGE_SCHEMAS]
+    : SITEWIDE_SCHEMAS;
   return (
     <>
-      {ALL_SCHEMAS.map((schema, i) => (
+      {schemas.map((schema, i) => (
         <script
           key={i}
           type="application/ld+json"
